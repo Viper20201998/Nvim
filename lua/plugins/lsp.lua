@@ -12,7 +12,7 @@ return {
 
     local on_attach = function(_, bufnr)
       vim.bo[bufnr].omnifunc = 'v:lua.vim.lsp.omnifunc'
-     vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
       local opts = { buffer = bufnr }
       vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, opts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -33,7 +33,9 @@ return {
       end, opts)
     end
     require("neodev").setup()
-    require("lspconfig").lua_ls.setup({
+    local lspconfig = require "lspconfig"
+
+    lspconfig.lua_ls.setup({
       on_attach = on_attach,
       settings = {
         Lua = {
@@ -41,6 +43,22 @@ return {
           workspace = { checkThirdParty = false },
         }
       }
+    })
+
+    lspconfig.intelephense.setup({
+      cmd = { "/home/viper/.local/share/nvim/mason/bin/intelephense", "--stdio" },
+      filetypes = { "blade", "php" },
+      root_dir = lspconfig.util.root_pattern(".git", vim.fn.getcwd()),
+    })
+    lspconfig.intelephense.setup {
+      cmd = { "/home/viper/.local/share/nvim/mason/bin/intelephense", "--stdio" },
+      filetypes = { "blade", "php" },
+      root_dir = lspconfig.util.root_pattern(".git", vim.fn.getcwd()),
+    }
+    lspconfig.phpactor.setup({
+      cmd = { "/home/viper/.local/share/nvim/mason/bin/phpactor", "language-server" },
+      filetypes = { "blade", "php" },
+      root_dir = lspconfig.util.root_pattern(".git", vim.fn.getcwd()),
     })
   end
 }
