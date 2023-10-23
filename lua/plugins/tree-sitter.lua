@@ -7,16 +7,17 @@ return {
   event = "VeryLazy",
   main = "nvim-treesitter.configs",
   opts = {
-     ensure_installed = { 
-       "lua",
-       "luadoc",
-     },
-     highlight = {
-       enable = true,
-     },
-     indent = {
-       enable = true,
-     },
+    ensure_installed = {
+      "lua",
+      "luadoc",
+      "php",
+    },
+    highlight = {
+      enable = true,
+    },
+    indent = {
+      enable = true,
+    },
     textobjects = {
       select = {
         enable = true,
@@ -31,5 +32,5 @@ return {
         },
       },
     },
-   }
+  }
 }
