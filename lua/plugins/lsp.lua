@@ -50,11 +50,6 @@ return {
       filetypes = { "blade", "php" },
       root_dir = lspconfig.util.root_pattern(".git", vim.fn.getcwd()),
     })
-    lspconfig.intelephense.setup {
-      cmd = { "/home/viper/.local/share/nvim/mason/bin/intelephense", "--stdio" },
-      filetypes = { "blade", "php" },
-      root_dir = lspconfig.util.root_pattern(".git", vim.fn.getcwd()),
-    }
     lspconfig.phpactor.setup({
       cmd = { "/home/viper/.local/share/nvim/mason/bin/phpactor", "language-server" },
       filetypes = { "blade", "php" },
