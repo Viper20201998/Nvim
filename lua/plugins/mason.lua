@@ -31,6 +31,8 @@ return {
         "html",
         "lua_ls",
         "emmet_ls",
+        "intelephense",
+        "phpactor",
       },
       automatic_installation = true,
     })

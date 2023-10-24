@@ -49,7 +49,8 @@ return {
       local hl = "LspDiagnosticsSign" .. type
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
-    local servers = { "tsserver", "html", "lua_ls", "emmet_ls" }
+    local servers = { "tsserver", "html", "lua_ls", "emmet_ls", "intelephense", "phpactor",
+    }
     for _, server in ipairs(servers) do
       lspconfig[server].setup({
         capabilities = capabilities,
